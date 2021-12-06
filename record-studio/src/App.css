@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=PT+Sans+Caption&display=swap');
+/* 'PT Sans Caption', sans-serif */
+
+ * {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* BACKGROUNDS */
+
+.MainPage {
+  background: url('../src/images/studioBckg.jpg'); 
+  background-size:  cover;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.movedBackground {
+  background: url('../src/images/topBlur.png'); 
+  background-size:  cover;
+  width: 100%;
+  overflow: auto;
+  height: max-content;
+  position: relative;
+  background-position-y: -50px;
+}
+
+.blurBackground {
+  background: url('../src/images/topBlur.png'); 
+  background-size:  cover;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  background-position-y: -50px;
+}
+
+
+/* NAVIGATION */
+
+.navBar {
+  margin-top: 1rem;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoContainer {
+  width: 5%;
+  height: 100%;
+  margin-left: 3rem;
+  float: left;
+}
+
+.logo {
+  background-image: url('../src/images/Zeronet_logo.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 5.5rem;
+}
+
+.nav {
+  display: flex;
+  width: 38%;
+  color: white;
+  justify-content: space-between;
+  transition: 2s;
+}
+
+.element {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.02rem;
+  font-weight: 200;
+  position: relative;
+  width: max-content;
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: white;
+  width: max-content;
+}
+
+.element::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  margin-top: 0.3rem;
+  transition: transform 400ms ease;
+  transform: scaleX(0);
+}
+
+.element:hover::after {
+  transform: scaleX(1);
+}
+
+.avatar {
+  width: 5%;
+  margin-right: 3.2rem;
+  color: white;
+}
+
+/* MAINPAGE CONTAINER */
+
+.flexContainer {
+  display: flex;
+  margin: 150px auto;
+  width: 80vw;
+}
+
+.flexElement {
+  width: 40vw;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 9rem;
+}
+
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  color: #FFFFFF;
+  font-size: 3rem;
+  width: 25ch;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  color: black;
+  line-height: 4.5rem;
+  font-size: 4.5rem;
+  width: 10ch;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: -webkit-linear-gradient(#b974ff 0 40%, #8767a1, white 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.466);
+}
+
+.btnContainer {
+  width: 350px;
+  height: 100px;
+}
+
+.signUpBtn {
+  width: 100%;
+  height: 100%;
+  background: #AC70EE;
+  box-shadow: inset 237px 0px 113px rgba(219, 0, 255, 0.75);
+  border-radius: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 57px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.05em;
+  color: #000000;
+  justify-content: center;
+  transition: 500ms ease;
+}
+
+.signUpBtn:hover {
+  width: 380px;
+  cursor: pointer;
+}
+
+.mainLogo {
+  background-image: url('../src/images/Zeronet_logo.png');
+  background-size: cover;
+  height: 100%;
+  width: 450px;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: flex;
+  width: max-content;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  color: #B7B7B7;
+  font-size: 1.2rem;
+  opacity: 1;
+}
+
+
+
+
+

@@ -1,0 +1,261 @@
+
+.ourServices {
+    width: 80%;
+    margin: 100px auto 0px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 40px;
+    letter-spacing: -0.05em;
+}
+
+.ourServices::after {
+    width: 100%;
+    height: 3px;
+    content: '';
+    display: block;
+    background: black;
+    margin-top: 0.8rem;
+    border-radius: 10px;
+}
+
+
+.PricesContainer {
+    width: 80%;
+    height: max-content;
+    margin: 100px auto;
+}
+
+/* CARD HOLDER */
+
+.cardHolder {
+    display: grid;
+    width: 200px;
+    height: 200px;
+    background: red;
+}
+
+/*  SMALL CARD */
+
+.smallCard {
+    margin-bottom: 10px;
+    background: rgb(248, 248, 248);
+    --card--witdh: calc(100% - 20px);
+    padding: 10px;
+    width: var(--card--witdh);
+    height: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    letter-spacing: -0.05em;
+    overflow: auto;
+    overflow-y: hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 500ms ease;
+}
+
+.smallCard:hover {
+    box-shadow: 14px 14px 14px rgba(0, 0, 0, 0.466);
+}
+
+.smallCard:hover .PriceContainer {
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.466);
+}
+
+.smallCard:hover .cardPrice {
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.466);
+}
+
+.smallCard:hover .cardNumber::after {
+    transform: scaleX(10);
+}
+
+.smallCard:hover .littleSignUpBtn {
+    opacity: 100%;
+    margin-top: -30px;
+    transition-delay: 350ms;
+}
+
+.smallCard:hover .cardMiddle {
+    max-height: 100px;
+
+}
+
+
+/* CARD ELEMENTS */
+
+.cardTop {
+    
+    margin: 0px 15px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    text-transform: uppercase;
+}
+
+.cardNumber {
+    width: max-content;
+    position: relative;
+}
+
+.cardNumber::after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(1);
+    height: 3px;
+    bottom: 0;
+    content: '';
+    background: black;
+    transition: 500ms ease;
+}
+
+.cardMiddle {
+    margin-top: 50px;
+    margin-left: 15px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: 500ms ease;
+}
+
+.cardText {
+    font-family: Inter;
+    font-style: normal;
+    font-size: 1.2rem;
+    width: 55ch;
+}
+
+.PriceContainer {
+    display: flex;
+    float: right;
+    align-items: baseline;
+    margin-right: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2rem;
+    background: -webkit-linear-gradient(#b974ff 0 40%, #8767a1, white 86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 500ms ease;
+}
+
+.cardPrice{
+    font-weight: 800;
+    font-size: 7rem;
+    letter-spacing: -8px;
+    padding: 0px 10px;
+    transition: 500ms ease;
+    text-shadow: 0px 0px 14px rgba(0, 0, 0, 0);
+}
+
+.cardBottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.littleSignUpBtn {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    background: -webkit-linear-gradient(#2d1841da, #000000e5);
+    border-radius: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 57px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.05em;
+    color: white;
+    justify-content: center;
+    transition: 500ms ease;
+    opacity: 0%;
+    margin-top: 160px;
+    margin-left: 15px;
+  }
+
+  /* SERVICES TEXT */
+
+  .textPriceContainer {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 50px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 4rem;
+    background: -webkit-linear-gradient(#b974ff 0 40%, #8767a1, white 86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.466);
+}
+
+.textPrice{
+    font-weight: 800;
+    font-size: 8rem;
+    letter-spacing: -8px;
+    padding: 0px 30px;
+    transition: 500ms ease;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.466);
+}
+
+.nbtnContainer {
+    width: 300px;
+    height: 80px;
+    transition: 500ms ease;
+}
+
+.nbtnContainer:hover {
+    width: 350px;
+}
+
+.normalSignUpButton {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(#2d1841da, #000000e5);
+    border-radius: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 57px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.05em;
+    color: white;
+    justify-content: center;
+  }
+
+  /* FLOATER */
+
+.floater {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    position: relative;
+}
+
+.floater h3 {
+    text-align: right;
+}
+
+.floater .nbtnContainer {
+    align-self: flex-end;
+}
