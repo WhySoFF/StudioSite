@@ -1,0 +1,7 @@
+.calendar {
+    background: url("https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FMinsk&showDate=1&src=bXJzdGluZ2VyaGFjQGdtYWlsLmNvbQ&src=aGc2YnVmZHZqaG1lMTI5aHM3dG45Z3FmbjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%237986CB&color=%23EF6C00&color=%2333B679");
+    width: 800px;
+    height: 600px;
+}
+
+/*  style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no" */

@@ -1,10 +1,37 @@
 import * as React from 'react';
 import '../App.css';
+import '../cssFiles/timeTable.css';
 import { Link } from 'react-router-dom';
 import Avatar from '../elements/avatar';
 import CRI from '@mui/icons-material/Copyright';
 
-function advertises() {
+
+import { useDispatch, useSelector } from "react-redux";
+import Button from '@mui/material/Button';
+import { increase } from '../redux/actions';
+
+let newDiv = null;
+let myDiv = null;
+
+function addElement(){
+
+        newDiv = document.createElement('p');
+        newDiv.innerHTML = 'sas';
+        myDiv = document.getElementById('hola');
+        // myDiv.parentNode.insertBefore(newDiv, myDiv);
+        myDiv.parentNode.insertBefore(newDiv, myDiv);
+
+}
+
+function Advertises() {
+
+    const dispatch = useDispatch();
+    const count = useSelector(state => state.CountReducer).count;
+
+    const onAddHandler = () => {
+        dispatch(increase());
+        addElement();
+    }
 
     return (
         <div className='blurBackground'>
@@ -31,8 +58,14 @@ function advertises() {
                 </div>
             </div>
 
+            <div>
 
-            
+                <Button onClick={onAddHandler}>ADD</Button>
+                {count}
+            </div>
+
+            <p id='hola'>mamasita</p>
+
 
 
 
@@ -45,4 +78,4 @@ function advertises() {
 
 }
 
-export default advertises;
+export default Advertises;

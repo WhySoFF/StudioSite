@@ -12,7 +12,7 @@ export default function Card(props) {
                 <div className='cardText'>{props.text}</div>
             </div>
             <div className='cardBottom'>
-                    <Link to="/"><div className='littleSignUpBtn'>Записаться</div></Link>
+                    <Link to="/signUpForStudio"><div className='littleSignUpBtn'>Записаться</div></Link>
                 <div className='PriceContainer'>
                     <div>{props.pre}</div>
                     <div className='cardPrice'>{props.price}</div>

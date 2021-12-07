@@ -30,6 +30,9 @@ function timetable() {
                     <Avatar></Avatar>
                 </div>
             </div>
+
+            <div className='calendar'></div>
+
             <div className='footer'>
                 <CRI />
                 <div>2021, WHYCE RecordStudio</div>

@@ -10,7 +10,7 @@ export default function Display() {
         <h1>WHYCE</h1>
         <h2>Самая быстрорастущая студия звукозаписи в минске</h2>
         <div className='btnContainer'>
-          <Link to='/'><div className='signUpBtn'>Записаться</div></Link>
+          <Link to='/signUpForStudio'><div className='signUpBtn'>Записаться</div></Link>
         </div>
       </Box>
       <Box sx={{}}>

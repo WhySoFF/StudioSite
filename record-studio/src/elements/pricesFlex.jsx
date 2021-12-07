@@ -15,7 +15,7 @@ export default function Display() {
                         BYN
                     </div>
                     <div className='nbtnContainer'>
-                        <Link to="/"><div className='normalSignUpButton'>Записаться</div></Link>
+                        <Link to="/signUpForStudio"><div className='normalSignUpButton'>Записаться</div></Link>
                     </div>
                 </Box>
                 <Box sx={{ width: '48%', height: '100%', display: 'grid' }}>
@@ -40,7 +40,7 @@ export default function Display() {
                             BYN
                         </div>
                         <div className='nbtnContainer'>
-                            <Link to="/"><div className='normalSignUpButton'>Записаться</div></Link>
+                            <Link to="/signUpForStudio"><div className='normalSignUpButton'>Записаться</div></Link>
                         </div>
                     </div>
                 </Box>
@@ -55,7 +55,7 @@ export default function Display() {
                         BYN
                     </div>
                     <div className='nbtnContainer'>
-                        <Link to="/"><div className='normalSignUpButton'>Записаться</div></Link>
+                        <Link to="/signUpForStudio"><div className='normalSignUpButton'>Записаться</div></Link>
                     </div>
                 </Box>
                 <Box sx={{ width: '48%', display: 'grid', }}>
