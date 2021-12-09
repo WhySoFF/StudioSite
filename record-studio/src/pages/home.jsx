@@ -5,8 +5,20 @@ import Avatar from '../elements/avatar';
 import Flex from '../elements/flex'
 import CRI from '@mui/icons-material/Copyright';
 
-function home() {
+import Button from '@mui/material/Button';
 
+import useAuth from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+
+function Home() {
+
+
+    const auth = useAuth();
+    const navigate = useNavigate();
+    const onLogOut = () => {
+        auth.logOut();
+        //navigate.push("/login");
+    };
 
     return (
         <div className='MainPage'>
@@ -28,9 +40,35 @@ function home() {
                         <Link to='/advertises'>акции</Link></div>
                 </div>
 
-                <div className='avatar'>
-                    <Avatar></Avatar>
-                </div>
+                {auth.isLoaded && (auth.user ? (
+                    <>
+                        {/* <Link to="/profile" underline="none" color="inherit" >
+                            <Button color="inherit">
+                                {auth.user.firstName} {auth.user.lastName}
+                                <Avatar></Avatar>
+                            </Button>
+                        </Link>
+                        <Button color="inherit" onClick={onLogOut}>
+                            Log out
+                        </Button> */}
+
+
+                        <div className='avatar'>
+                            <Avatar></Avatar>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login" underline="none" color="inherit" >
+                            <Button color="inherit">Log in</Button>
+                        </Link>
+                        <Link to="/registration" underline="none" color="inherit" >
+                            <Button color="inherit">Registration</Button>
+                        </Link>
+                    </>
+                ))}
+
+                
             </div>
             <Flex></Flex>
             <div className='footer'>
@@ -42,4 +80,4 @@ function home() {
 
 }
 
-export default home;
+export default Home;

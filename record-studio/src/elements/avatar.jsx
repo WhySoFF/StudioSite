@@ -7,7 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Logout from '@mui/icons-material/Logout';
 
 export default function AccountMenu() {
@@ -63,14 +63,14 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-          <Avatar /><Link href="/account" underline="none" color="inherit" >My account</Link> 
+          <Avatar /><Link to="/account" underline="none" color="inherit" >My account</Link> 
         </MenuItem>
         <Divider />
         <MenuItem>
-          <ListItemIcon>
+          {/* <ListItemIcon>
             <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
+          </ListItemIcon> */}
+          <Link to="/login" underline="none" color="inherit" >login</Link> 
         </MenuItem>
       </Menu>
     </React.Fragment>

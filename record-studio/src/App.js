@@ -4,14 +4,21 @@ import Prices from './pages/prices';
 import Contact from './pages/contacts';
 import Timetable from './pages/timetable';
 import Advertises from './pages/advertises';
-import SignUp from './pages/signUp';
 import SignUpForStudio from './pages/signUpForStudio';
-import Account from './pages/account'
+import Account from './pages/account';
+import Registration from './pages/Registration/index';
+import LogIn from './pages/Login/index';
 
+import PrivateRoute from './rootes/privateRoute';
+import GuestRoute from './rootes/guestRoute';
+import useAuth from './hooks/useAuth';
 
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 
 function App() {
+
+  const auth = useAuth();
+
   return (
     <>
     <Router>
@@ -23,13 +30,23 @@ function App() {
                 <Route path="/timetable" element={<Timetable/>}/>
                 <Route path="/advertises" element={<Advertises/>}/>
                 <Route path="/account" element={<Account/>}/>
-                <Route path="/signUp" element={<SignUp/>}/>
                 <Route path="/signUpForStudio" element={<SignUpForStudio/>}/>
+
+
+                <Route path="/account" element={<Account/>}>
+                </Route>
+
+                <Route path='/login' element={<LogIn/>}>
+                </Route>
+
+                <Route path="/registration" element={<Registration/>}>   
+                </Route>
+
+
                 <Route path="*" element={<h2>Ресурс не найден</h2>} />
             </Routes>
         </Router> 
     </>
-    
     
   );
 }
