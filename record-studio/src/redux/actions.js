@@ -5,7 +5,7 @@ export const increase=()=> {
     }
 };
 
-export const decreaase=()=> {
+export const decrease=()=> {
 
     return{
         type: 'DECREASE'

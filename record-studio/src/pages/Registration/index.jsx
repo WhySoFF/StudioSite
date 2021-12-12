@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./validation";
 import api from "../../services/api";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Registration() {
+  const navigate = useNavigate();
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(false);
   const auth = useAuth();
@@ -55,6 +56,7 @@ function Registration() {
       }
     } finally {
       setIsLoading(false);
+      navigate('/');
     }
   };
 

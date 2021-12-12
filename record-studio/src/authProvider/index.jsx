@@ -7,6 +7,7 @@ function AuthProvider(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState(null);
   const [token, setTokenData] = useState(null);
+  const [isAdmin, setAdmin] = useState(false);
 
   const setToken = useCallback((tokenData) => {
     setTokenData(tokenData);
@@ -30,14 +31,19 @@ function AuthProvider(props) {
     try {
       if (tokenData) {
         const { data } = await api.auth.getProfile();
+        if (data.email == 'admin@gmail.com') {
+          setAdmin(true);
+        }
         setUser(data);
       }
     } catch {
       setToken(null);
     } finally {
+      
       setIsLoaded(true);
     }
   }, [setToken]);
+
 
   useEffect(() => {
     loadData();
@@ -48,11 +54,13 @@ function AuthProvider(props) {
       isLoaded,
       user,
       token,
+      isAdmin,
+      setAdmin,
       setUser,
       setToken,
       logOut,
     }),
-    [isLoaded, user, token, setToken, logOut]
+    [isLoaded, user, token, isAdmin, setAdmin, setToken, logOut]
   );
 
   return (

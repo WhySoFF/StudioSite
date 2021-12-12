@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 import Avatar from '../elements/avatar';
 import PricesFlex from '../elements/pricesFlex'
 import CRI from '@mui/icons-material/Copyright';
-import '../cssFiles/pricesCss.css'
+import Linkk from '@mui/material/Link';
+import '../cssFiles/pricesCss.css';
+import Button from '@mui/material/Button';
+import useAuth from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
-function prices() {
+function Prices() {
+
+  const auth = useAuth();
+    const navigate = useNavigate();
+    const onLogOut = () => {
+        auth.logOut();
+        navigate('/');
+    };
 
   return (
     <div className='movedBackground'>
@@ -26,12 +37,30 @@ function prices() {
           <div className='element'>
             <Link to='/contact'>контакты</Link></div>
           <div className='element'>
-            <Link to='/advertises'>акции</Link></div>
+            <Linkk href='/advertises'>акции</Linkk></div>
         </div>
 
-        <div className='avatar'>
-          <Avatar></Avatar>
-        </div>
+        {auth.isLoaded && (auth.user ? (
+                    <div className='flexAvatar'>
+
+                        <Button color="inherit" onClick={onLogOut}>
+                            Log out
+                        </Button>
+                        <div className='avatar'>
+                            <Avatar></Avatar>
+                        </div>
+
+                    </div>
+                ) : (
+                    <div className='flexAvatar'>
+                        <Link to="/login" underline="none" color="inherit" >
+                            <Button color="inherit">Log in</Button>
+                        </Link>
+                        <Link to="/registration" underline="none" color="inherit" >
+                            <Button color="inherit">Registration</Button>
+                        </Link>
+                    </div>
+                ))}
       </div>
 
 
@@ -50,4 +79,4 @@ function prices() {
 
 }
 
-export default prices;
+export default Prices;

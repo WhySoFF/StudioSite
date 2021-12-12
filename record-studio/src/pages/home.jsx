@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
+import Linkk from '@mui/material/Link';
 import Avatar from '../elements/avatar';
 import Flex from '../elements/flex'
 import CRI from '@mui/icons-material/Copyright';
@@ -11,13 +12,11 @@ import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-
-
     const auth = useAuth();
     const navigate = useNavigate();
     const onLogOut = () => {
         auth.logOut();
-        //navigate.push("/login");
+        navigate('/');
     };
 
     return (
@@ -37,38 +36,32 @@ function Home() {
                     <div className='element'>
                         <Link to='/contact'>контакты</Link></div>
                     <div className='element'>
-                        <Link to='/advertises'>акции</Link></div>
+                        <Linkk href='/advertises'>акции</Linkk></div>
                 </div>
 
                 {auth.isLoaded && (auth.user ? (
-                    <>
-                        {/* <Link to="/profile" underline="none" color="inherit" >
-                            <Button color="inherit">
-                                {auth.user.firstName} {auth.user.lastName}
-                                <Avatar></Avatar>
-                            </Button>
-                        </Link>
+                    <div className='flexAvatar'>
+
                         <Button color="inherit" onClick={onLogOut}>
                             Log out
-                        </Button> */}
-
-
+                        </Button>
                         <div className='avatar'>
                             <Avatar></Avatar>
                         </div>
-                    </>
+
+                    </div>
                 ) : (
-                    <>
+                    <div className='flexAvatar'>
                         <Link to="/login" underline="none" color="inherit" >
                             <Button color="inherit">Log in</Button>
                         </Link>
                         <Link to="/registration" underline="none" color="inherit" >
                             <Button color="inherit">Registration</Button>
                         </Link>
-                    </>
+                    </div>
                 ))}
 
-                
+
             </div>
             <Flex></Flex>
             <div className='footer'>

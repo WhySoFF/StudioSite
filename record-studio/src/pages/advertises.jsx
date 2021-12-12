@@ -4,22 +4,57 @@ import '../cssFiles/timeTable.css';
 import { Link } from 'react-router-dom';
 import Avatar from '../elements/avatar';
 import CRI from '@mui/icons-material/Copyright';
-
+import Linkk from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
 
 import { useDispatch, useSelector } from "react-redux";
 import Button from '@mui/material/Button';
-import { increase } from '../redux/actions';
+import { increase, decrease } from '../redux/actions';
+import useAuth from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
-let newDiv = null;
+let newTitle = null;
+let newDesc = null;
+let newBlock = null;
 let myDiv = null;
+let innerId = null;
 
-function addElement(){
+let count = 3;
 
-        newDiv = document.createElement('p');
-        newDiv.innerHTML = 'sas';
-        myDiv = document.getElementById('hola');
-        // myDiv.parentNode.insertBefore(newDiv, myDiv);
-        myDiv.parentNode.insertBefore(newDiv, myDiv);
+function addElement() {
+
+    let title = document.getElementById('title').value;
+    let desc = document.getElementById('desc').value;
+
+
+    newTitle = document.createElement('div');
+    newTitle.innerHTML = title;
+    newTitle.id = 'blockTitle';
+
+    newDesc = document.createElement('div');
+    newDesc.innerHTML = desc;
+    newDesc.id = 'blockDesc';
+
+    innerId = document.createElement('div');
+    innerId.id = count;
+
+    newBlock = document.createElement('div');
+    newBlock.id = 'blockContainer';
+
+    newBlock.append(innerId);
+    newBlock.append(newTitle);
+    newBlock.append(newDesc);
+
+    myDiv = document.getElementById('0');
+    myDiv.parentNode.insertBefore(newBlock, myDiv);
+    count++;
+
+}
+
+function deleteElement() {
+    count--;
+    myDiv = document.getElementById('blockContainer');
+    myDiv.parentNode.removeChild(newBlock, myDiv);
 
 }
 
@@ -32,6 +67,24 @@ function Advertises() {
         dispatch(increase());
         addElement();
     }
+
+    const onDeleteHandler = () => {
+        dispatch(decrease());
+        deleteElement();
+    }
+
+    const auth = useAuth();
+    const navigate = useNavigate();
+    const onLogOut = () => {
+        auth.logOut();
+        navigate('/');
+    };
+
+    const [value, setValue] = React.useState('Controlled');
+
+    const changeSize = (event) => {
+        setValue(event.target.value);
+    };
 
     return (
         <div className='blurBackground'>
@@ -50,25 +103,80 @@ function Advertises() {
                     <div className='element'>
                         <Link to='/contact'>контакты</Link></div>
                     <div className='element'>
-                        <Link to='/advertises'>акции</Link></div>
+                        <Linkk href='/advertises'>акции</Linkk></div>
                 </div>
 
-                <div className='avatar'>
-                    <Avatar></Avatar>
+                {auth.isLoaded && (auth.user ? (
+                    <div className='flexAvatar'>
+
+                        <Button color="inherit" onClick={onLogOut}>
+                            Log out
+                        </Button>
+                        <div className='avatar'>
+                            <Avatar></Avatar>
+                        </div>
+
+                    </div>
+                ) : (
+                    <div className='flexAvatar'>
+                        <Link to="/login" underline="none" color="inherit" >
+                            <Button color="inherit">Log in</Button>
+                        </Link>
+                        <Link to="/registration" underline="none" color="inherit" >
+                            <Button color="inherit">Registration</Button>
+                        </Link>
+                    </div>
+                ))}
+            </div>
+
+            {auth.isLoaded && auth.isAdmin ? (
+                <>
+                    <Button onClick={onAddHandler}>ADD</Button>
+                    <Button onClick={onDeleteHandler}>DEL</Button>
+                    {count}
+                    <div className='description'>
+                        <TextField
+                            id="title"
+                            label="Название"
+
+                            maxRows={1}
+                            fullWidth
+                            variant="filled"
+                        />
+                        <TextField
+                            id="desc"
+                            label="Описание"
+                            multiline
+                            rows={4}
+                            fullWidth
+                            value={value}
+                            onChange={changeSize}
+                            variant="standard"
+                        />
+                    </div>
+
+                </>
+            ) : (
+                <>
+
+                </>
+            )}
+
+            <div id='0'>
+                <div id="blockContainer">
+                    <div id='1'></div>
+                    <div id='blockTitle'>3 час записи - бесплатно</div>
+                    <div id='blockDesc'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias eius voluptatum nobis quaerat nulla quam illo, repellat nihil ab possimus vel suscipit aliquam, nesciunt voluptas? Ducimus pariatur quisquam aperiam aspernatur.</div>
                 </div>
+                <div id="blockContainer">
+                    <div id='2'></div>
+                    <div id='blockTitle'>до 14 часов -50% на все</div>
+                    <div id='blockDesc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum incidunt ab maiores cupiditate corporis quae excepturi! Officiis, nam aperiam aliquid magnam illum, vitae soluta repellat neque voluptatum architecto iure dolores.</div>
+                </div>
+
+
+
             </div>
-
-            <div>
-
-                <Button onClick={onAddHandler}>ADD</Button>
-                {count}
-            </div>
-
-            <p id='hola'>mamasita</p>
-
-
-
-
             <div className='footer'>
                 <CRI />
                 <div>2021, WHYCE RecordStudio</div>
@@ -79,3 +187,4 @@ function Advertises() {
 }
 
 export default Advertises;
+

@@ -13,7 +13,7 @@ import PrivateRoute from './rootes/privateRoute';
 import GuestRoute from './rootes/guestRoute';
 import useAuth from './hooks/useAuth';
 
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
 
@@ -21,33 +21,33 @@ function App() {
 
   return (
     <>
-    <Router>
-            <Routes>
-                <Route exact path="/" element={<Home/>}/>
-                <Route path="/home" element={<Home/>}/>
-                <Route path="/prices" element={<Prices/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-                <Route path="/timetable" element={<Timetable/>}/>
-                <Route path="/advertises" element={<Advertises/>}/>
-                <Route path="/account" element={<Account/>}/>
-                <Route path="/signUpForStudio" element={<SignUpForStudio/>}/>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/prices" element={<Prices />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/timetable" element={<Timetable />} />
+          <Route path="/advertises" element={<Advertises />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/signUpForStudio" element={<SignUpForStudio />} />
 
-
-                <Route path="/account" element={<Account/>}>
-                </Route>
-
-                <Route path='/login' element={<LogIn/>}>
-                </Route>
-
-                <Route path="/registration" element={<Registration/>}>   
-                </Route>
-
-
-                <Route path="*" element={<h2>Ресурс не найден</h2>} />
-            </Routes>
-        </Router> 
+          {auth.isLoaded && auth.user ? (
+            <Route path="/account" element={<Account />}>
+            </Route>
+          ) : (
+            <>
+              <Route path='/login' element={<LogIn />}>
+              </Route>
+              <Route path="/registration" element={<Registration />}>
+              </Route>
+            </>
+          )}
+          <Route path="*" element={<h4>Ресурс не найден</h4>} />
+        </Routes>
+      </Router>
     </>
-    
+
   );
 }
 
